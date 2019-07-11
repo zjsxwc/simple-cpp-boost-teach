@@ -1,0 +1,17 @@
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6.2)
+PROJECT (Demo1)
+
+INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR})
+
+#
+# Locate Project Prerequisites Boost
+#
+FIND_PACKAGE (Boost 1.53 COMPONENTS "system" REQUIRED)
+INCLUDE_DIRECTORIES (${Boost_INCLUDE_DIRS})
+LINK_DIRECTORIES (${Boost_LIBRARY_DIRS})
+
+
+ADD_EXECUTABLE (Demo1 timer.cpp)
+TARGET_LINK_LIBRARIES (Demo1 ${Boost_LIBRARIES})
+
+# finally run `cmake . && make` to generate the Demo1
